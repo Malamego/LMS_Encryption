@@ -64,6 +64,25 @@
             @endif
         </div>
     </div>
+
+    <div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
+        <label class="col-md-2 control-label">{{ trans('main.sex') }} <span class="required"></span> </label>
+        <div class="col-md-10">
+            <select class="form-control" id="sex" name="sex">
+                <option value=""></option>
+                <option value="male" {{ getData($data, 'sex') == 'male' ? ' selected' : '' }}>{{trans('main.male')}}</option>
+                <option value="female" {{ getData($data, 'sex') == 'female' ? ' selected' : '' }}>{{trans('main.female')}}</option>
+
+            </select>
+            @if ($errors->has('sex'))
+                <span class="help-block">
+                    <strong class="help-block">{{ $errors->first('sex') }}</strong>
+                </span>
+            @endif
+        </div>
+    </div>
+
+
     <!-- Add Student's Class -->
     <div class="form-group{{ $errors->has('class') ? ' has-error' : '' }}">
         <label class="col-md-2 control-label">{{ trans('main.class') }} <span class="required"></span> </label>
@@ -85,7 +104,7 @@
     <div class="form-group{{ $errors->has('fatherjob') ? ' has-error' : '' }}">
         <label class="col-md-2 control-label">{{ trans('main.fatherjob') }} <span class="required"></span> </label>
         <div class="col-md-10">
-            <input type="text" fatherjob="fatherjob" value="{{ getData($data, 'fatherjob') }}" class="form-control" placeholder="{{ trans('main.fatherjob') }}" required>
+            <input type="text" name="fatherjob" value="{{ getData($data, 'fatherjob') }}" class="form-control" placeholder="{{ trans('main.fatherjob') }}" required>
             @if ($errors->has('fatherjob'))
                 <span class="help-block">
                     <strong class="help-block">{{ $errors->first('fatherjob') }}</strong>
@@ -98,7 +117,7 @@
     <div class="form-group{{ $errors->has('country') ? ' has-error' : '' }}">
         <label class="col-md-2 control-label">{{ trans('main.country') }} <span class="required"></span> </label>
         <div class="col-md-10">
-            <input type="text" country="country" value="{{ 'Egypt' }}" class="form-control" placeholder="{{ trans('main.country') }}" readonly >
+            <input type="text" name="country" value="{{ 'Egypt' }}" class="form-control" placeholder="{{ trans('main.country') }}" readonly >
             @if ($errors->has('country'))
                 <span class="help-block">
                     <strong class="help-block">{{ $errors->first('country') }}</strong>

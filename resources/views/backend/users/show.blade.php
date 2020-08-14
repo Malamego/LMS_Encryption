@@ -65,8 +65,18 @@
                             <br><hr>
                         </div>
                         <div class="col-md-6">
-                            <strong>{{trans('main.imei')}} : </strong>
-                            {{ trans( $show->imei) }}
+                            <strong>{{trans('main.fatherjob')}} : </strong>
+                            {{ trans( $show->fatherjob) }}
+                            <br><hr>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>{{trans('main.country')}} : </strong>
+                            {{ trans( $show->country) }}
+                            <br><hr>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>{{trans('main.city')}} : </strong>
+                            {{ trans( $show->city) }}
                             <br><hr>
                         </div>
                         <div class="col-md-6">

@@ -34,7 +34,7 @@ class CategoriesDataTable extends DataTable
      */
     public function query()
     {
-        $query = Category::query()->with('class_relation')->select('categories.*');      
+        $query = Category::query()->with('class_relation')->select('categories.*');
         return $this->applyScopes($query);
     }
 
@@ -79,10 +79,10 @@ class CategoriesDataTable extends DataTable
                 'searchable' => true,
                 'orderable'  => true,
                 'width'          => '200px',
-            ],
+            ],            
             [
-                'name' => "classs_relation.name",
-                'data'    => 'classs_relation.name',
+                'name' => "class_relation.name",
+                'data'    => 'class_relation.name',
                 'title'   => trans('main.class'),
                 'searchable' => true,
                 'orderable'  => true,

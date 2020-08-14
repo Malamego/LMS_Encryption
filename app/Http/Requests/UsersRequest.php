@@ -25,12 +25,15 @@ class UsersRequest extends FormRequest
     {
         $return = [
             'name'     => 'required',
+            'city'     => 'required',
+            'country'     => 'required',
+            'fatherjob'     => 'required',
             'email'    => 'required|unique:users',
             'phone'    => 'required|unique:users',
             'class_id'    => 'required|exists:class_models,id',
-            'imei'    => 'required|min:14',
             'password' => 'required|confirmed',
-            'type'     => 'required|in:user,admin',
+            'type'     => 'required|in:user,admin,teacher',
+            'sex'     => 'required|in:male,female',
             'image'     => 'sometimes|image',
         ];
 

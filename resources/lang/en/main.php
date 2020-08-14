@@ -782,6 +782,9 @@ return [
     'sohag'                        => 'Sohag',
     'southsinai'                   => 'South Sinai',
     'suez'                         => 'Suez',
+    'sex'                          => 'Sex',
+    'male'                         => 'Male',
+    'female'                       => 'Female',
 
 
 ];

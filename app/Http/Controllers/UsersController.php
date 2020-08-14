@@ -40,6 +40,7 @@ class UsersController extends Controller
             'roles' => Role::get(),
             'cls' => $cls,
         ]);
+
     }
 
     /**
@@ -56,6 +57,8 @@ class UsersController extends Controller
         $requestAll['password'] = Hash::make($request->password);
 
         $user = User::create($requestAll);
+
+
 
         $roles = $request['roles']; //Retrieving the roles field
         //Checking if a role was selected
@@ -116,15 +119,19 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->city = $request->city;
+        $user->country = $request->country;
+        $user->fatherjob = $request->fatherjob;
 
         if ($request->has('password') && !empty($request->password) && !is_null($request->password)) {
             $user->password = Hash::make($request->password);
         }
 
         $user->type = $request->type;
+        $user->sex = $request->sex;
         $user->phone = $request->phone;
-        $user->imei = $request->imei;
         $user->class_id = $request->class_id;
+        $user->identity = $request->identity;
 
         if ($request->hasFile('image')) {
             $user->image = Helper::UploadUpdate($user->image ?? null, 'users', $request->file('image'), 'checkImages');

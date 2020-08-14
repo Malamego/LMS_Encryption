@@ -16,7 +16,7 @@ class Category extends Model
 
   public function class_relation()
   {
-      return $this->belongsTo('App\Models\Category', 'class_id');
+      return $this->belongsTo('App\Models\ClassModel', 'class_id');
   }
 
 
