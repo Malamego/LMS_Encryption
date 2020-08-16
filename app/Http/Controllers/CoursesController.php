@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CoursesRequest;
 use App\DataTables\CoursesDataTable;
 use App\Models\Course;
+use App\Models\Category;
 
 class CoursesController extends Controller
 {
@@ -30,8 +31,10 @@ class CoursesController extends Controller
      */
     public function create()
     {
+        $cat = Category::all();
         return view("{$this->viewPath}.create", [
           'title' => trans('main.add') . ' ' . trans('main.courses'),
+          'cat' => $cat,
       ]);
     }
 
@@ -44,7 +47,7 @@ class CoursesController extends Controller
     public function store(CoursesRequest $request)
     {
         $requestAll = $request->all();
-
+$requestAll['useradd_id'] = auth()->user()->id;
         $course =  Course::create($requestAll);
 
         session()->flash('success', trans('main.added-message'));
@@ -75,9 +78,11 @@ class CoursesController extends Controller
     public function edit($id)
     {
         $course = Course::findOrFail($id);
+        $cat = Category::all();
         return view("{$this->viewPath}.edit", [
           'title' => trans('main.edit') . ' ' . trans('main.course') . ' : ' . $course->name,
           'edit' => $course,
+          'cat' => $cat,
       ]);
     }
 
@@ -92,8 +97,11 @@ class CoursesController extends Controller
     {
         $course = Course::find($id);
         $course->name = $request->name;
-        $course->slug = $request->slug;
+        $course->cat_id = $request->cat_id;
         $course->desc = $request->desc;
+        $course->metatitle = $request->metatitle;
+        $course->metadescr = $request->metadescr;
+        $course->metakeyword = $request->metakeyword;
         $course->price = $request->price;
         $course->save();
 

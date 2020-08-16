@@ -207,6 +207,7 @@ return [
     'residential'         => 'Residential',
     'commercial'          => 'Commercial',
     'category'            => 'Category',
+    'select category'     => 'Select Category',
     'type'                => 'Type',
     'resale'              => 'Resale',
     'primary'             => 'Primary',
@@ -785,6 +786,8 @@ return [
     'sex'                          => 'Sex',
     'male'                         => 'Male',
     'female'                       => 'Female',
-
+    'metatitleription'             => 'Meta Title Description',
+    'metakeywordription'           => 'Meta Keywor Description',
+    'metadescrription'             => 'Meta Descrription',
 
 ];

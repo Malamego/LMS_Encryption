@@ -11,7 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 class Course extends Model
 {
     protected $fillable = [
-        'name', 'desc', 'price', 'cat_id', 'useradd_id', 'metatitle', 'metadescr'
+        'name', 'desc', 'price', 'cat_id', 'useradd_id', 'metatitle', 'metadescr',
         'metakeyword'
 
     ];
@@ -30,12 +30,10 @@ class Course extends Model
     {
         return $this->belongsTo('App\Models\User', 'useradd_id');
     }
-  
 
     public function cat_relation()
     {
         return $this->belongsTo('App\Models\Category', 'cat_id');
     }
-
 
 }

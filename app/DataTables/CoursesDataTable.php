@@ -34,7 +34,7 @@ class CoursesDataTable extends DataTable
      */
     public function query()
     {
-        $query = Course::query()->select('courses.*');
+        $query = Course::query()->with('cat_relation', 'useradd_relation')->select('courses.*');
         return $this->applyScopes($query);
     }
 
@@ -80,9 +80,25 @@ class CoursesDataTable extends DataTable
                  'width'          => '250px',
              ],
              [
+                 'name' => "cat_relation.name",
+                 'data'    => 'cat_relation.name',
+                 'title'   => trans('main.category'),
+                 'searchable' => true,
+                 'orderable'  => true,
+                 'width'          => '100px',
+             ],
+             [
+                 'name' => "useradd_relation.name",
+                 'data'    => 'useradd_relation.name',
+                 'title'   => trans('main.user'),
+                 'searchable' => true,
+                 'orderable'  => true,
+                 'width'          => '100px',
+             ],
+             [
                  'name' => "courses.desc",
                  'data'    => 'desc',
-                 'title'   => trans('main.desc'),
+                 'title'   => trans('main.description'),
                  'searchable' => true,
                  'orderable'  => true,
                  'width'          => '200px',

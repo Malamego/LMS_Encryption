@@ -24,10 +24,13 @@ class CoursesRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'     => 'required',
-            'slug'     => 'sometimes|nullable',
-            'desc'     => 'nullable',
-            'price'    => 'sometimes|nullable|numeric',
+            'name'            => 'required',
+            'cat_id'          => 'required',
+            'desc'            => 'nullable',
+            'metatitle'       => 'nullable',
+            'metadescr'       => 'nullable',
+            'metakeyword'     => 'nullable',
+            'price'           => 'sometimes|nullable|numeric',
         ];
     }
 
@@ -35,11 +38,13 @@ class CoursesRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name'       => trans('main.name'),
-            'slug'       => trans('main.slug'),
-            'desc'       => trans('main.description'),
-            'price'      => trans('main.price'),
-
+            'name'              => trans('main.name'),
+            'cat_id'            => trans('main.category'),
+            'desc'              => trans('main.description'),            
+            'metatitle'         => trans('main.metatitle'),
+            'metadescr'         => trans('main.metadescr'),
+            'metakeyword'       => trans('main.metakeyword'),
+            'price'            => trans('main.price'),
         ];
     }
 }
