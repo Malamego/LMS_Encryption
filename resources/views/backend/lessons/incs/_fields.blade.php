@@ -60,10 +60,10 @@
         <div class="col-md-6">
             <select class="form-control select2" id="type" name="type">
                 <option value="">{{ trans('main.type') }}</option>
-                <option value="video" {{ getData($data, 'type') == 'video' ? ' selected' : '' }}>{{trans('main.video')}}</option>
-                <option value="image" {{ getData($data, 'type') == 'image' ? ' selected' : '' }}>{{trans('main.image')}}</option>
-                <option value="text" {{ getData($data, 'type') == 'text' ?   ' selected' : '' }}>{{trans('main.text')}}</option>
-                <option value="game" {{ getData($data, 'type') == 'game' ?   ' selected' : '' }}>{{trans('main.game')}}</option>
+                <option value="video" {{ getData($data, 'type') == 'video' ? ' selected' : '' }}>{{trans('main.youtubevideo')}}</option>
+                <option value="image" {{ getData($data, 'type') == 'image' ? ' selected' : '' }}>{{trans('main.uploadvideo')}}</option>
+                <option value="text" {{ getData($data, 'type') == 'text' ?   ' selected' : '' }}>{{trans('main.downloadlink')}}</option>
+
             </select>
             @if ($errors->has('type'))
                 <span class="help-block">
